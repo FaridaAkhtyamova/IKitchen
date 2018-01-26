@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Fridge";
+}
+
+@model IKitchen.Models.Product
+
+<h2 class="h2">Ваш Холодильник</h2>
+
+<h3>@Model.Name</h3>
+<div class="">
+    <p> Количество: @Model.Amount @Model.MeasureType </p>
+    <p> Дата покупки: @Model.DateTimeBought.Date.ToString("dd MMM yyyy") </p>
+    <p> Годен до: @Model.ExpiryDate.ToString("dd MMM yyyy")</p>
+</div>
+
