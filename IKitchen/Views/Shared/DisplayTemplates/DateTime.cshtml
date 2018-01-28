@@ -1,0 +1,9 @@
+﻿@model DateTime
+
+@if(Model.Date == DateTime.Today)
+{
+    <strong> сегодня </strong>
+} else
+{
+    @Model.ToShortDateString();
+}
