@@ -18,8 +18,8 @@ namespace IKitchen.Models
         public int ID { get; set; }
         [Display(Name = "Meal Name")]
         public string MealName { get; set; }
+        [Display(Name = "Meal Type")]
         public MealTypes MealType { get; set; }
-        public int ProductID { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 
