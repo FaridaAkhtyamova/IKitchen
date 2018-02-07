@@ -1,36 +1,45 @@
-public class Assitant
+using IKitchen.BLL;
+using IKitchen.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IKitchen.BLL
 {
-    public List<Recipes> SuggestDinner(Fridge fridge)
+    public class AssitantService
+
     {
-        var recipes;
-        if (fridge.Contains("Meat"))
-{
-    /// Get all type of meats sorted by used by date
-var meats = fridge.Where(i => i.ProductType == "Meat").OrderByDescending(d => d.UseByDate);
-foreach (var meat in meats)
-{
-    recipes.Add(db.Where(Recipe.Ingredient.Contains(meat)));
-}
+        //private IKitchenContext repo;
 
-} else
-{
-    var recipes = db.Meals.Where(m => m.LastCookedDate <= 5days && m.MealType == "Dinner")
-}
+        //public AssitantService()
+        //{
+        //    repo = new IKitchenContext();
+        //}
 
-    }
-    public void Popular()
-    {
+        //public List<Recipes> SuggestDinner(Fridge fridge)
+        //{
+        //    var recipes = new List<Recipes>(); 
+        //    if (fridge.ContainsProduct("Meat"))
+        //    {
+        //        /// Get all type of meats sorted by used by date
+        //        var meats = fridge.Where(i => i.ProductType == "Meat").OrderByDescending(d => d.UseByDate);
+        //        foreach (var meat in meats)
+        //        {
+        //            recipes.Add(db.Where(Recipe.Ingredient.Contains(meat)));
+        //        }
 
-    }
+        //    }
+        //    else
+        //    {
+        //        var recipes = db.Meals.Where(m => m.LastCookedDate <= 5days && m.MealType == "Dinner")
+        //    }
 
-    public bool Contains(string productType, Fridge fridge)
-    {
-        foreach (var products in fridge)
+        public void GetPopularMeals()
         {
-            if (products.ProductType == productType)
-                return true;
-                break;
+
         }
-        return false;
     }
+    
 }

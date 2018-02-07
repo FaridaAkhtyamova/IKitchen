@@ -11,107 +11,107 @@ using IKitchen.Models;
 
 namespace IKitchen.Controllers
 {
-    public class ProductsController : Controller
+    public class RecipesController : Controller
     {
         private IKitchenContext db = new IKitchenContext();
 
-        // GET: Products
+        // GET: Recipes
         public async Task<ActionResult> Index()
         {
-            return View(await db.Products.ToListAsync());
+            return View(await db.Recipes.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: Recipes/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Recipe recipe = await db.Recipes.FindAsync(id);
+            if (recipe == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(recipe);
         }
 
-        // GET: Products/Create
+        // GET: Recipes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Recipes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Name,Amount,DateTimeBought,ExpiryDate,MeasureType")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "RecipeID,RecipeName,RecipeCategory,SubType")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.Recipes.Add(recipe);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(recipe);
         }
 
-        // GET: Products/Edit/5
+        // GET: Recipes/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Recipe recipe = await db.Recipes.FindAsync(id);
+            if (recipe == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(recipe);
         }
 
-        // POST: Products/Edit/5
+        // POST: Recipes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Name,Amount,DateTimeBought,ExpiryDate,MeasureType")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include = "RecipeID,RecipeName,RecipeCategory,SubType")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(recipe).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(recipe);
         }
 
-        // GET: Products/Delete/5
+        // GET: Recipes/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Recipe recipe = await db.Recipes.FindAsync(id);
+            if (recipe == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(recipe);
         }
 
-        // POST: Products/Delete/5
+        // POST: Recipes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            db.Products.Remove(product);
+            Recipe recipe = await db.Recipes.FindAsync(id);
+            db.Recipes.Remove(recipe);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

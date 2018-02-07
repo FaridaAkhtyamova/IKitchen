@@ -1,7 +1,10 @@
-﻿using System.Data.Entity;
-using IKitchen.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
 
-namespace IKitchen.DAL
+namespace IKitchen.Models
 {
     public class IKitchenContext : DbContext
     {
@@ -16,11 +19,10 @@ namespace IKitchen.DAL
         {
         }
 
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Meal> Meals { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public System.Data.Entity.DbSet<IKitchen.Models.Ingredient> Ingredients { get; set; }
 
+        public System.Data.Entity.DbSet<IKitchen.Models.Category> Categories { get; set; }
 
+        public System.Data.Entity.DbSet<IKitchen.Models.Recipe> Recipes { get; set; }
     }
 }

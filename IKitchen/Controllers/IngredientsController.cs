@@ -11,107 +11,107 @@ using IKitchen.Models;
 
 namespace IKitchen.Controllers
 {
-    public class MealsController : Controller
+    public class IngredientsController : Controller
     {
         private IKitchenContext db = new IKitchenContext();
 
-        // GET: Meals
+        // GET: Ingredients
         public async Task<ActionResult> Index()
         {
-            return View(await db.Meals.ToListAsync());
+            return View(await db.Ingredients.ToListAsync());
         }
 
-        // GET: Meals/Details/5
+        // GET: Ingredients/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = await db.Meals.FindAsync(id);
-            if (meal == null)
+            Ingredient ingredient = await db.Ingredients.FindAsync(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(meal);
+            return View(ingredient);
         }
 
-        // GET: Meals/Create
+        // GET: Ingredients/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Meals/Create
+        // POST: Ingredients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,MealName,MealType")] Meal meal)
+        public async Task<ActionResult> Create([Bind(Include = "IngredientID,IngredientName,IngredientCategory")] Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                db.Meals.Add(meal);
+                db.Ingredients.Add(ingredient);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(meal);
+            return View(ingredient);
         }
 
-        // GET: Meals/Edit/5
+        // GET: Ingredients/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = await db.Meals.FindAsync(id);
-            if (meal == null)
+            Ingredient ingredient = await db.Ingredients.FindAsync(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(meal);
+            return View(ingredient);
         }
 
-        // POST: Meals/Edit/5
+        // POST: Ingredients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,MealName,MealType")] Meal meal)
+        public async Task<ActionResult> Edit([Bind(Include = "IngredientID,IngredientName,IngredientCategory")] Ingredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(meal).State = EntityState.Modified;
+                db.Entry(ingredient).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(meal);
+            return View(ingredient);
         }
 
-        // GET: Meals/Delete/5
+        // GET: Ingredients/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = await db.Meals.FindAsync(id);
-            if (meal == null)
+            Ingredient ingredient = await db.Ingredients.FindAsync(id);
+            if (ingredient == null)
             {
                 return HttpNotFound();
             }
-            return View(meal);
+            return View(ingredient);
         }
 
-        // POST: Meals/Delete/5
+        // POST: Ingredients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Meal meal = await db.Meals.FindAsync(id);
-            db.Meals.Remove(meal);
+            Ingredient ingredient = await db.Ingredients.FindAsync(id);
+            db.Ingredients.Remove(ingredient);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

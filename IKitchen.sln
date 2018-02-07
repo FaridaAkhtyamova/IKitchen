@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IKitchen", "IKitchen\IKitchen.csproj", "{255A092F-29DA-4703-BEDC-762A6AFA941D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IKitchen.BLL", "IKitchen.BLL\IKitchen.BLL.csproj", "{C8411D83-B329-413D-B76A-5345ED5E9AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IKitchen.DAL", "IKitchen.DAL\IKitchen.DAL.csproj", "{9A16BC89-230D-4719-9831-9E19A0BE9319}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{255A092F-29DA-4703-BEDC-762A6AFA941D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{255A092F-29DA-4703-BEDC-762A6AFA941D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{255A092F-29DA-4703-BEDC-762A6AFA941D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8411D83-B329-413D-B76A-5345ED5E9AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8411D83-B329-413D-B76A-5345ED5E9AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8411D83-B329-413D-B76A-5345ED5E9AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8411D83-B329-413D-B76A-5345ED5E9AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A16BC89-230D-4719-9831-9E19A0BE9319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A16BC89-230D-4719-9831-9E19A0BE9319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A16BC89-230D-4719-9831-9E19A0BE9319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A16BC89-230D-4719-9831-9E19A0BE9319}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
